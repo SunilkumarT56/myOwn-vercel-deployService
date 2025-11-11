@@ -2,6 +2,8 @@ import { execSync } from "child_process";
 import fs from "fs";
 import path from "path";
 import redis from "redis";
+import { getAllFiles } from "../utils/files.js";
+
 
 const publisher = redis.createClient();
 publisher.connect();
