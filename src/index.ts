@@ -1,5 +1,6 @@
 import { createClient } from "redis";
 import { downloadS3File } from "./controller/downloadS3Files.js"
+import {buildReactProject} from "./worker/builder.js"
 
 const subscriber = createClient();
 
@@ -19,7 +20,8 @@ async function main() {
     console.log("📦 Received:", response);
     //@ts-ignore
     await downloadS3File(`output/${response.element}`);
-    console.log("donwloaded")
+    //@ts-ignore
+    await buildReactProject(response.element)
   }
 }
 

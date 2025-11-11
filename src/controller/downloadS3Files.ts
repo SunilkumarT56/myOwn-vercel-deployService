@@ -6,6 +6,7 @@ dotenv.config();
 import {fileURLToPath} from "url"
 import redis from "redis";
 
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 console.log(__dirname)
@@ -31,7 +32,8 @@ export async function downloadS3File(prefix : string){
                 return
             }
             const relativeKey = key.replace(/^output\//, "");
-            const finalOutputPath = path.join(__dirname ,"../output", relativeKey);
+            const finalOutputPath = path.join(__dirname ,"../../output", relativeKey);
+            console.log(finalOutputPath);
             const outputFile  = fs.createWriteStream(finalOutputPath);
             const dirName = path.dirname(finalOutputPath);
             if (!fs.existsSync(dirName)) {
@@ -54,7 +56,7 @@ console.log("done");
 const id = prefix.split("/")[1];
 console.log(id);
 if (id) {
-    await publisher.hSet("status", id, "deployed");
+    await publisher.hSet("status", id, "deploying");
 }
         
 
