@@ -1,6 +1,7 @@
 import fs from "fs";
 import mime from "mime-types"; // optional for correct content-type
 import { s3 } from "./s3Client.js";
+import {clearBuildFolders} from "../utils/clearFolders.js"
 
 export const uploadFile = async (key: string, localFilePath: string) => {
   const fileContent = fs.readFileSync(localFilePath);

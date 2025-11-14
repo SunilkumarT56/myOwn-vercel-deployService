@@ -3,6 +3,7 @@ import fs from "fs";
 import path from "path";
 import redis from "redis";
 import { getAllFiles } from "../utils/files.js";
+import {clearBuildFolders} from "../utils/clearFolders.js"
 
 
 const publisher = redis.createClient();
@@ -61,6 +62,8 @@ export async function buildReactProject(deploymentId: string) {
 
     console.log(`✅ Build complete for ${deploymentId}`);
      await publisher.hSet("status", deploymentId, "builded");
+     
+
   } catch (err) {
     console.error(`❌ Build failed for ${deploymentId}:`);
     throw err;

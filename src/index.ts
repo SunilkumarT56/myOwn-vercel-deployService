@@ -4,6 +4,7 @@ import {buildReactProject} from "./worker/builder.js"
 import { uploadFile } from "./S3/uploadToS3.js";
 import { getAllFiles } from "./utils/files.js";
 import path from "path";
+import {clearBuildFolders} from "./utils/clearFolders.js"
 
 
 const subscriber = createClient();
@@ -41,6 +42,7 @@ try {
   }
 
   console.log("🎉 All files uploaded successfully!");
+  await clearBuildFolders();
 } catch (err) {
   console.error("❌ Upload Error:", err);
 }
