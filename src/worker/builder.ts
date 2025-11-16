@@ -38,11 +38,11 @@ export async function buildReactProject(deploymentId: string) {
           elif [ -f yarn.lock ]; then
             npm i -g yarn >/dev/null 2>&1 && yarn install --frozen-lockfile
           else
-            npm ci --silent
+            npm install --include=dev --silent
           fi
 
           # Build
-          (npm run build || yarn build || pnpm build)
+          (npx vite build || yarn build || pnpm build)
 
           mkdir -p /build
 
