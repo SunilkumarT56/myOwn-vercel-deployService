@@ -3,7 +3,8 @@
 *Backend Engineering • DevOps • Distributed Systems • PSG Tech*
 
 ---
-![Uploading Vercel-clone.png…]()
+<img width="10772" height="10272" alt="Vercel-clone" src="https://github.com/user-attachments/assets/f7dfdbeb-7bdb-4991-b305-7e111f19ea9a" />
+
 
 
 ## **Overview**
